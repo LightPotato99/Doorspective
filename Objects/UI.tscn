@@ -1,0 +1,202 @@
+[gd_scene load_steps=13 format=3 uid="uid://b6gpmvyal3ou5"]
+
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="1_j8432"]
+[ext_resource type="Texture2D" uid="uid://c5hct60w8dam7" path="res://Sprites/BlankSquare.png" id="2_50kxl"]
+[ext_resource type="FontFile" uid="uid://d16gvabnim1bu" path="res://CreatoDisplay-Regular.otf" id="2_cgfya"]
+[ext_resource type="Texture2D" uid="uid://byv3fhwclo1mu" path="res://Sprites/Arrow.png" id="3_uu2uv"]
+[ext_resource type="Texture2D" uid="uid://dbmsca62054x8" path="res://Sprites/MouseL.png" id="4_6ms4h"]
+[ext_resource type="Texture2D" uid="uid://7nti6ahypris" path="res://Sprites/MouseR.png" id="5_ajo2h"]
+[ext_resource type="Texture2D" uid="uid://47gmlesow6cd" path="res://Sprites/LetterR.png" id="6_13nhi"]
+[ext_resource type="Texture2D" uid="uid://blu433352m4ai" path="res://Sprites/LetterZ.png" id="7_y6s4o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bjfdk"]
+font = ExtResource("2_cgfya")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3cunm"]
+font = ExtResource("2_cgfya")
+
+[sub_resource type="LabelSettings" id="LabelSettings_fuk5n"]
+font = ExtResource("2_cgfya")
+
+[sub_resource type="LabelSettings" id="LabelSettings_u28y5"]
+font = ExtResource("2_cgfya")
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j8432")
+
+[node name="Level" type="Label" parent="."]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 65.0
+offset_right = 197.0
+offset_bottom = 104.0
+text = "Level 1/10
+"
+label_settings = SubResource("LabelSettings_bjfdk")
+
+[node name="WhatsBehind" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 165.0
+offset_right = 229.0
+offset_bottom = 359.0
+
+[node name="Label" type="Label" parent="WhatsBehind"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 15.0
+offset_right = 154.0
+offset_bottom = 38.0
+text = "What's behind
+"
+label_settings = SubResource("LabelSettings_3cunm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Target" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 409.0
+offset_right = 229.0
+offset_bottom = 603.0
+
+[node name="Label" type="Label" parent="Target"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 15.0
+offset_right = 154.0
+offset_bottom = 38.0
+text = "Target
+"
+label_settings = SubResource("LabelSettings_fuk5n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Keys" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Keys"]
+layout_mode = 0
+offset_left = 853.0
+offset_top = 141.0
+offset_right = 1139.0
+offset_bottom = 613.0
+
+[node name="Move" type="Label" parent="Keys"]
+layout_mode = 0
+offset_left = 975.0
+offset_top = 295.0
+offset_right = 1018.0
+offset_bottom = 318.0
+text = "Move
+"
+label_settings = SubResource("LabelSettings_u28y5")
+
+[node name="BlankSquare" type="Sprite2D" parent="Keys/Move"]
+position = Vector2(22, -88)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_50kxl")
+
+[node name="Arrow" type="Sprite2D" parent="Keys/Move/BlankSquare"]
+texture = ExtResource("3_uu2uv")
+
+[node name="BlankSquare2" type="Sprite2D" parent="Keys/Move"]
+position = Vector2(22, -36)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_50kxl")
+
+[node name="Arrow2" type="Sprite2D" parent="Keys/Move/BlankSquare2"]
+rotation = 3.14159
+texture = ExtResource("3_uu2uv")
+
+[node name="BlankSquare3" type="Sprite2D" parent="Keys/Move"]
+position = Vector2(-31, -36)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_50kxl")
+
+[node name="Arrow3" type="Sprite2D" parent="Keys/Move/BlankSquare3"]
+rotation = -1.5708
+texture = ExtResource("3_uu2uv")
+
+[node name="BlankSquare4" type="Sprite2D" parent="Keys/Move"]
+position = Vector2(75, -36)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_50kxl")
+
+[node name="Arrow4" type="Sprite2D" parent="Keys/Move/BlankSquare4"]
+rotation = 1.5708
+texture = ExtResource("3_uu2uv")
+
+[node name="ControlCam" type="Label" parent="Keys"]
+layout_mode = 0
+offset_left = 870.0
+offset_top = 406.0
+offset_right = 992.0
+offset_bottom = 455.0
+text = "Control Camera
+(Drag)"
+label_settings = SubResource("LabelSettings_u28y5")
+horizontal_alignment = 1
+
+[node name="MouseL" type="Sprite2D" parent="Keys/ControlCam"]
+position = Vector2(62, -37)
+texture = ExtResource("4_6ms4h")
+
+[node name="ResetCam" type="Label" parent="Keys"]
+layout_mode = 0
+offset_left = 1011.0
+offset_top = 407.0
+offset_right = 1133.0
+offset_bottom = 430.0
+text = "Reset Camera"
+label_settings = SubResource("LabelSettings_u28y5")
+
+[node name="MouseR" type="Sprite2D" parent="Keys/ResetCam"]
+position = Vector2(54, -38)
+texture = ExtResource("5_ajo2h")
+
+[node name="Undo" type="Label" parent="Keys"]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 552.0
+offset_right = 994.0
+offset_bottom = 575.0
+text = "Undo"
+label_settings = SubResource("LabelSettings_u28y5")
+horizontal_alignment = 1
+
+[node name="BlankSquare5" type="Sprite2D" parent="Keys/Undo"]
+position = Vector2(60, -36)
+texture = ExtResource("2_50kxl")
+
+[node name="LetterZ" type="Sprite2D" parent="Keys/Undo/BlankSquare5"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_y6s4o")
+
+[node name="Restart" type="Label" parent="Keys"]
+layout_mode = 0
+offset_left = 1003.0
+offset_top = 554.0
+offset_right = 1125.0
+offset_bottom = 577.0
+text = "Restart"
+label_settings = SubResource("LabelSettings_u28y5")
+horizontal_alignment = 1
+
+[node name="BlankSquare6" type="Sprite2D" parent="Keys/Restart"]
+position = Vector2(62, -38)
+texture = ExtResource("2_50kxl")
+
+[node name="LetterR" type="Sprite2D" parent="Keys/Restart/BlankSquare6"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_13nhi")

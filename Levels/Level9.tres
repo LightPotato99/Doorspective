@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="LevelPack" load_steps=2 format=3 uid="uid://jfqtoaf5vjfd"]
+
+[ext_resource type="Script" path="res://Scripts/LevelPack.gd" id="1_kj5jx"]
+
+[resource]
+script = ExtResource("1_kj5jx")
+width = 3
+height = 3
+targets = Array[int]([0, 0, 0, 1, 1, 0, 0, 1, 0])

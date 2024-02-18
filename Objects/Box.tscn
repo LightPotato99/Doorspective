@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8vcubtfl6kja"]
+
+[ext_resource type="Script" path="res://Scripts/Box.gd" id="1_2un8p"]
+[ext_resource type="PackedScene" uid="uid://cerfrkrr52jbl" path="res://Meshes/Box.glb" id="2_tjv1x"]
+[ext_resource type="ArrayMesh" uid="uid://dthxm1ptyylyr" path="res://BlenderFiles/Box.obj" id="3_vgwdb"]
+[ext_resource type="AudioStream" uid="uid://3n4xh1iafj8m" path="res://Sounds/SFX/Boxmove.wav" id="4_edatw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_typvi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4d75"]
+albedo_color = Color(0.32549, 0.0901961, 0.0156863, 1)
+
+[node name="Box" type="StaticBody3D" groups=["box"]]
+script = ExtResource("1_2un8p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_typvi")
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("2_tjv1x")]
+
+[node name="MeshInstanceUh" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("3_vgwdb")
+surface_material_override/0 = SubResource("StandardMaterial3D_q4d75")
+
+[node name="Ray" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0.5, 0)
+debug_shape_custom_color = Color(0.309804, 1, 1, 1)
+debug_shape_thickness = 5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_edatw")
+volume_db = -4.522
+
+[connection signal="move_sideways" from="." to="." method="_on_move_sideways"]

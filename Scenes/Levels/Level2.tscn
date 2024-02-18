@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://byt7amud0dn5h"]
+
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_37w5x"]
+[ext_resource type="MeshLibrary" uid="uid://bgq7vu307wqkk" path="res://Meshes/tiles.tres" id="2_fplbd"]
+[ext_resource type="Script" path="res://Scripts/CameraMovement.gd" id="3_ypcup"]
+[ext_resource type="PackedScene" uid="uid://c30wmf40pljay" path="res://Objects/Player.tscn" id="4_233bu"]
+[ext_resource type="PackedScene" uid="uid://b8vcubtfl6kja" path="res://Objects/Box.tscn" id="5_ipqot"]
+[ext_resource type="PackedScene" uid="uid://xxhd0vx42tau" path="res://Objects/Door.tscn" id="6_300sh"]
+[ext_resource type="PackedScene" uid="uid://b6gpmvyal3ou5" path="res://Objects/UI.tscn" id="7_svp4v"]
+
+[node name="Level2" type="Node3D"]
+script = ExtResource("1_37w5x")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_fplbd")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 65535, 65535, 1, 65535, 0, 1, 65535, 1, 1, 65535, 2, 1, 65535, 65534, 1, 0, 65534, 1, 1, 65534, 1, 1, 65535, 1, 65535, 65533, 1, 0, 65533, 1, 1, 65533, 1, 1, 2, 1, 1, 1, 1, 1, 0, 1)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 2)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.965926, 0.129409, -0.224144, 0, 0.866025, 0.5, 0.258819, -0.482963, 0.836516, -2, 7, 9)
+script = ExtResource("3_ypcup")
+sensitivity = 0.05
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 2)
+light_energy = 10.0
+omni_range = 7.0
+
+[node name="Player" parent="." groups=["box", "player"] instance=ExtResource("4_233bu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, 1.5)
+
+[node name="Box2" parent="." instance=ExtResource("5_ipqot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, -0.5)
+
+[node name="Box3" parent="." instance=ExtResource("5_ipqot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, 0.5)
+
+[node name="Box4" parent="." instance=ExtResource("5_ipqot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, -1.5)
+
+[node name="Door" parent="." instance=ExtResource("6_300sh")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, 4.5)
+dir = Vector3(0, 0, -1)
+scaling = Vector3i(3, 2, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("7_svp4v")]

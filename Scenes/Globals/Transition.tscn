@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://3o6hh5j1w0a3"]
+
+[ext_resource type="Script" path="res://Scripts/Transition.gd" id="1_ouhq1"]
+[ext_resource type="Texture2D" uid="uid://bqkv6p6p0y3tb" path="res://Sprites/Transition.png" id="1_ro8ys"]
+
+[sub_resource type="Animation" id="Animation_yw061"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1148, -6)]
+}
+
+[sub_resource type="Animation" id="Animation_uxjxn"]
+resource_name = "transition"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1148, -6), Vector2(-657, -6)]
+}
+
+[sub_resource type="Animation" id="Animation_i1ac6"]
+resource_name = "transitionOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-642, -6), Vector2(-2449, -6)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujatx"]
+_data = {
+"RESET": SubResource("Animation_yw061"),
+"transitionIn": SubResource("Animation_uxjxn"),
+"transitionOut": SubResource("Animation_i1ac6")
+}
+
+[node name="Transition" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_ouhq1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 1148.0
+offset_top = -6.0
+offset_right = 3548.0
+offset_bottom = 762.0
+texture = ExtResource("1_ro8ys")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ujatx")
+}

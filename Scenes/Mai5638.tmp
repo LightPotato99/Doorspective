@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi55t3boneofs"]
+
+[ext_resource type="MeshLibrary" uid="uid://di737ibh5jxm5" path="res://Meshes/tiles.tres" id="1_muoca"]
+[ext_resource type="PackedScene" uid="uid://c30wmf40pljay" path="res://Objects/Player.tscn" id="2_rnlqy"]
+[ext_resource type="PackedScene" uid="uid://b8vcubtfl6kja" path="res://Objects/Box.tscn" id="3_fylqo"]
+[ext_resource type="PackedScene" uid="uid://xxhd0vx42tau" path="res://Objects/Door.tscn" id="4_wpr26"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_muoca")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(131071, 3, 1, 1, 0, 1, 0, 0, 1, 0, 65535, 1, 65535, 65535, 1, 65534, 65535, 1, 65533, 65535, 1, 65533, 65534, 1, 65532, 65534, 1, 65535, 0, 1, 65534, 0, 1, 65533, 0, 1, 65532, 0, 1, 65531, 0, 1, 65530, 65535, 1, 65531, 65535, 1, 65532, 65535, 1, 65532, 1, 1, 65531, 1, 1, 65531, 2, 1, 65532, 2, 1, 65533, 2, 1, 65534, 2, 1, 65535, 2, 1, 0, 2, 1, 65535, 1, 1, 65534, 1, 1, 65533, 1, 1, 65534, 3, 1, 65533, 3, 1, 65532, 3, 1, 196605, 65535, 1, 65535, 3, 1, 0, 3, 1, 0, 4, 1, 65535, 4, 1, 65534, 4, 1)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 2)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.939692, 0.34202, 0, -0.34202, 0.939692, 0, 6, 9)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.248064, 0.968744, 0, -0.968744, 0.248064, 0, 20, 14.3964)
+
+[node name="Player" parent="." groups=["box"] instance=ExtResource("2_rnlqy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, 1.5)
+
+[node name="Box" parent="." instance=ExtResource("3_fylqo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 5, 1.5)
+
+[node name="Box2" parent="." instance=ExtResource("3_fylqo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, -0.5)
+
+[node name="Box3" parent="." instance=ExtResource("3_fylqo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.4913, 3.5)
+
+[node name="Box4" parent="." instance=ExtResource("3_fylqo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 4.4913, 3.5)
+
+[node name="Door" parent="." instance=ExtResource("4_wpr26")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.5, 0.5)
+dir = Vector3(0, 1, 0)

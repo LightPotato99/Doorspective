@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsltlbjip06ux"]
+
+[ext_resource type="PackedScene" uid="uid://bcs3ovddf4gp0" path="res://Meshes/placeholderGround.glb" id="1_xd1aj"]
+[ext_resource type="ArrayMesh" uid="uid://boc50kd11jklj" path="res://BlenderFiles/Ground.obj" id="2_k8n7m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mko3k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_panpe"]
+
+[node name="Root" type="Node3D"]
+
+[node name="placeholderGround" parent="." instance=ExtResource("1_xd1aj")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="placeholderGround"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="placeholderGround/StaticBody3D"]
+shape = SubResource("BoxShape3D_mko3k")
+
+[node name="ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("2_k8n7m")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/StaticBody3D"]
+shape = SubResource("BoxShape3D_panpe")

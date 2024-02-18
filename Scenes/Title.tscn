@@ -1,0 +1,69 @@
+[gd_scene load_steps=13 format=3 uid="uid://cra7kuo0kufgu"]
+
+[ext_resource type="Texture2D" uid="uid://ctlaoxrssegam" path="res://Sprites/Title.png" id="1_e44wm"]
+[ext_resource type="FontFile" uid="uid://d16gvabnim1bu" path="res://CreatoDisplay-Regular.otf" id="2_psspk"]
+[ext_resource type="Script" path="res://Scenes/StartButton.gd" id="2_skn4s"]
+[ext_resource type="Texture2D" uid="uid://bry0lb6rj4gg1" path="res://Sprites/DoorButton.png" id="3_37lpo"]
+[ext_resource type="AudioStream" uid="uid://b72vuoqr350fn" path="res://Sounds/SFX/GameStart.wav" id="4_i3n6u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5m6k0"]
+font = ExtResource("2_psspk")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wlge1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yd3g2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lnc58"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1husq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1uy0h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m7gfa"]
+font = ExtResource("2_psspk")
+font_color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Node2D"]
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(571, 207)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_e44wm")
+
+[node name="Maker" type="Label" parent="."]
+offset_left = 519.0
+offset_top = 609.0
+offset_right = 650.0
+offset_bottom = 632.0
+text = "LightPotato 2024"
+label_settings = SubResource("LabelSettings_5m6k0")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 523.0
+offset_top = 455.0
+offset_right = 663.0
+offset_bottom = 527.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wlge1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yd3g2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lnc58")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1husq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1uy0h")
+text = "
+"
+icon = ExtResource("3_37lpo")
+script = ExtResource("2_skn4s")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button"]
+stream = ExtResource("4_i3n6u")
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 25.0
+offset_right = 79.0
+offset_bottom = 48.0
+text = "Start"
+label_settings = SubResource("LabelSettings_m7gfa")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

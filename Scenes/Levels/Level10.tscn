@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://dsttm7uvwiotd"]
+
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_lfr8y"]
+[ext_resource type="MeshLibrary" uid="uid://bgq7vu307wqkk" path="res://Meshes/tiles.tres" id="2_3jwr7"]
+[ext_resource type="Script" path="res://Scripts/CameraMovement.gd" id="3_bgwqu"]
+[ext_resource type="PackedScene" uid="uid://c30wmf40pljay" path="res://Objects/Player.tscn" id="4_ackac"]
+[ext_resource type="PackedScene" uid="uid://b8vcubtfl6kja" path="res://Objects/Box.tscn" id="5_lnh5h"]
+[ext_resource type="PackedScene" uid="uid://xxhd0vx42tau" path="res://Objects/Door.tscn" id="6_pym32"]
+[ext_resource type="PackedScene" uid="uid://b6gpmvyal3ou5" path="res://Objects/UI.tscn" id="7_s4tww"]
+
+[node name="Level10" type="Node3D"]
+script = ExtResource("1_lfr8y")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_3jwr7")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(1, 65534, 1, 1, 65533, 1, 0, 65534, 1, 0, 65533, 1, 65534, 65534, 1, 65534, 65533, 1, 65535, 65533, 1, 65535, 65534, 1, 65533, 65535, 1, 65534, 65535, 1, 65535, 65535, 1, 0, 65535, 1, 1, 65535, 1, 2, 65535, 1, 2, 65534, 1, 2, 65533, 1, 2, 65532, 1, 3, 65535, 1, 3, 65534, 1, 3, 65533, 1, 3, 65532, 1, 1, 65532, 1, 0, 65532, 1, 65535, 65532, 1, 65534, 65532, 1, 65533, 65534, 1, 65533, 65533, 1, 65533, 65532, 1, 4, 65531, 1, 4, 65532, 1, 4, 65533, 1, 4, 65534, 1, 4, 65535, 1, 4, 0, 1, 3, 0, 1, 2, 0, 1, 65532, 65535, 1, 65532, 0, 1, 65533, 0, 1, 65534, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0, 1, 65532, 65534, 1, 65532, 65533, 1, 65532, 65532, 1, 65532, 65531, 1, 65533, 65531, 1, 65534, 65531, 1, 65535, 65531, 1, 0, 65531, 1, 1, 65531, 1, 2, 65531, 1, 3, 65531, 1, 262145, 65533, 1)
+}
+metadata/_editor_floor_ = Vector3(0, 3, 2)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.965926, 0.129409, -0.224144, 0, 0.866025, 0.5, 0.258819, -0.482963, 0.836516, -2, 7, 9)
+script = ExtResource("3_bgwqu")
+radius = 7.0
+sensitivity = 0.05
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 1.48702)
+light_energy = 12.0
+omni_range = 9.0
+
+[node name="Player" parent="." groups=["box", "player"] instance=ExtResource("4_ackac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.5, -2.5)
+
+[node name="Box2" parent="." instance=ExtResource("5_lnh5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, -2.5)
+scaling = Vector3i(1, 2, 1)
+
+[node name="Box3" parent="." instance=ExtResource("5_lnh5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -2.5)
+scaling = Vector3i(1, 3, 1)
+
+[node name="Box4" parent="." instance=ExtResource("5_lnh5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 4.5, -2.5)
+scaling = Vector3i(3, 1, 1)
+
+[node name="Door" parent="." instance=ExtResource("6_pym32")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.5, 3.5)
+dir = Vector3(0, 0, -1)
+scaling = Vector3i(3, 3, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("7_s4tww")]

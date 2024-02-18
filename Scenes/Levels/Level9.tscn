@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqcymnjuli7sl"]
+
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_wpsct"]
+[ext_resource type="MeshLibrary" uid="uid://bgq7vu307wqkk" path="res://Meshes/tiles.tres" id="2_tvcwx"]
+[ext_resource type="Script" path="res://Scripts/CameraMovement.gd" id="3_r15me"]
+[ext_resource type="PackedScene" uid="uid://c30wmf40pljay" path="res://Objects/Player.tscn" id="4_1djte"]
+[ext_resource type="PackedScene" uid="uid://b8vcubtfl6kja" path="res://Objects/Box.tscn" id="5_yckb0"]
+[ext_resource type="PackedScene" uid="uid://xxhd0vx42tau" path="res://Objects/Door.tscn" id="6_lgo66"]
+[ext_resource type="PackedScene" uid="uid://b6gpmvyal3ou5" path="res://Objects/UI.tscn" id="7_ao865"]
+
+[node name="Level9" type="Node3D"]
+script = ExtResource("1_wpsct")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_tvcwx")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(1, 65534, 1, 1, 65533, 1, 0, 65534, 1, 0, 65533, 1, 65534, 65534, 1, 65534, 65533, 1, 65535, 65533, 1, 65535, 65534, 1, 131073, 65534, 1, 65533, 65535, 1, 65534, 65535, 1, 65535, 65535, 1, 0, 65535, 1, 1, 65535, 1, 2, 65535, 1, 2, 65534, 1, 2, 65533, 1, 2, 65532, 1, 3, 65535, 1, 3, 65534, 1, 3, 65533, 1, 3, 65532, 1, 1, 65532, 1, 0, 65532, 1, 65535, 65532, 1, 65534, 65532, 1, 65533, 65534, 1, 65533, 65533, 1, 65533, 65532, 1, 196609, 65535, 1)
+}
+metadata/_editor_floor_ = Vector3(0, 3, 2)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.965926, 0.129409, -0.224144, 0, 0.866025, 0.5, 0.258819, -0.482963, 0.836516, -2, 7, 9)
+script = ExtResource("3_r15me")
+radius = 7.0
+sensitivity = 0.05
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 1.17155)
+light_energy = 10.0
+omni_range = 7.0
+
+[node name="Player" parent="." groups=["box", "player"] instance=ExtResource("4_1djte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.5, -2.5)
+
+[node name="Box2" parent="." instance=ExtResource("5_yckb0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, -2.5)
+scaling = Vector3i(1, 2, 1)
+
+[node name="Box4" parent="." instance=ExtResource("5_yckb0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3.5, -2)
+scaling = Vector3i(2, 1, 2)
+
+[node name="Door" parent="." instance=ExtResource("6_lgo66")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.5, 3.5)
+dir = Vector3(0, 0, -1)
+scaling = Vector3i(3, 3, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("7_ao865")]

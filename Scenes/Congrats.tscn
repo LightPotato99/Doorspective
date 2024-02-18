@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cotraukqrignk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p6g6s"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Congrats" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 492.0
+offset_top = 238.0
+offset_right = 532.0
+offset_bottom = 261.0
+text = "gg"
+label_settings = SubResource("LabelSettings_p6g6s")
