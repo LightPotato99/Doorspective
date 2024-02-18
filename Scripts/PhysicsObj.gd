@@ -14,7 +14,7 @@ var activeGrav:bool = false
 
 signal move_sideways
 
-var fallY = -4
+var fallY = -6
 
 func _ready():
 	colShape.scale = scaling

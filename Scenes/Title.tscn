@@ -1,6 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cra7kuo0kufgu"]
+[gd_scene load_steps=15 format=3 uid="uid://cra7kuo0kufgu"]
 
 [ext_resource type="Texture2D" uid="uid://ctlaoxrssegam" path="res://Sprites/Title.png" id="1_e44wm"]
+[ext_resource type="Texture2D" uid="uid://tqopeapdpppc" path="res://Sprites/Gradient.png" id="1_ehyoe"]
+[ext_resource type="Texture2D" uid="uid://cij7tknnh7vx" path="res://Sprites/BGTitleDoor.png" id="1_in0hm"]
 [ext_resource type="FontFile" uid="uid://d16gvabnim1bu" path="res://CreatoDisplay-Regular.otf" id="2_psspk"]
 [ext_resource type="Script" path="res://Scenes/StartButton.gd" id="2_skn4s"]
 [ext_resource type="Texture2D" uid="uid://bry0lb6rj4gg1" path="res://Sprites/DoorButton.png" id="3_37lpo"]
@@ -25,6 +27,21 @@ font = ExtResource("2_psspk")
 font_color = Color(0, 0, 0, 1)
 
 [node name="Title" type="Node2D"]
+
+[node name="BgTitleDoor" type="Sprite2D" parent="."]
+position = Vector2(580, 450)
+texture = ExtResource("1_in0hm")
+
+[node name="Gradient" type="Sprite2D" parent="."]
+position = Vector2(572, 323.5)
+scale = Vector2(1.95, 1.6625)
+texture = ExtResource("1_ehyoe")
+
+[node name="Gradient2" type="Sprite2D" parent="."]
+modulate = Color(0.686275, 0.686275, 0.686275, 1)
+position = Vector2(572, 323.5)
+scale = Vector2(1.95, -1.66)
+texture = ExtResource("1_ehyoe")
 
 [node name="Title" type="Sprite2D" parent="."]
 position = Vector2(571, 207)

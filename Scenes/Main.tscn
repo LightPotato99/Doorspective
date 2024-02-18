@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://dlauhskxlwt5h"]
+[gd_scene load_steps=2 format=3 uid="uid://dlauhskxlwt5h"]
 
-[node name="Main" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://bi55t3boneofs" path="res://Scenes/Levels/Level1.tscn" id="1_8enkp"]
+
+[node name="Main" type="SubViewport"]
+
+[node name="Level1" parent="." instance=ExtResource("1_8enkp")]

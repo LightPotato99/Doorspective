@@ -1,40 +1,44 @@
 [gd_scene load_steps=4 format=3 uid="uid://bx1pjrnfc1kh0"]
 
-[ext_resource type="Texture2D" uid="uid://df8dkidk38jt8" path="res://Sprites/DoorBG.png" id="1_7tktb"]
-[ext_resource type="Texture2D" uid="uid://diwwv6skrly72" path="res://Sprites/BG.png" id="2_pf3e0"]
+[ext_resource type="ArrayMesh" uid="uid://dthxm1ptyylyr" path="res://BlenderFiles/Box.obj" id="2_yjl4w"]
 
-[sub_resource type="Curve" id="Curve_jxeya"]
-min_value = -1.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
+[sub_resource type="Environment" id="Environment_e68rc"]
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
 
-[node name="Bg" type="Node2D"]
+[sub_resource type="FogMaterial" id="FogMaterial_02cgh"]
+density = 50.0
+albedo = Color(0.337255, 0.172549, 0.270588, 1)
+height_falloff = 2.43103
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="Bg" type="Node3D"]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.38828, -24.4629)
 visible = false
-position = Vector2(567, 707)
-lifetime = 10.0
-texture = ExtResource("1_7tktb")
+lifetime = 5.0
+mesh = ExtResource("2_yjl4w")
 emission_shape = 3
-emission_rect_extents = Vector2(600, 1)
-direction = Vector2(0, -1)
-gravity = Vector2(0, 0)
-initial_velocity_min = 107.38
-initial_velocity_max = 107.38
-angular_velocity_min = -40.0
-angular_velocity_max = 40.0
-color = Color(0.960784, 0.827451, 0.662745, 1)
-hue_variation_min = -0.65
-hue_variation_max = 0.49
-hue_variation_curve = SubResource("Curve_jxeya")
+emission_box_extents = Vector3(50, 40, 4)
+emission_colors = PackedColorArray(1, 1, 1, 1)
+particle_flag_rotate_y = true
+direction = Vector3(1, 1, 1)
+spread = 134.27
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 1.0
+angle_min = -3.0
+angle_max = 3.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.74932, 7.86697, -10.9149)
+light_energy = 100.0
+omni_range = 100.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e68rc")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -47.7388, 0)
 visible = false
-z_index = -9
-position = Vector2(585, 330)
-scale = Vector2(2.02333, 1.92)
-texture = ExtResource("2_pf3e0")
-
-[node name="SubViewport" type="SubViewport" parent="."]
-transparent_bg = true
-size = Vector2i(1124, 648)
+size = Vector3(500, 50, 500)
+material = SubResource("FogMaterial_02cgh")

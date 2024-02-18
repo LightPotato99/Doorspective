@@ -2,13 +2,6 @@ extends CanvasLayer
 
 func begin():
 	$AnimationPlayer.play("transitionOut")
-
-func change_level():
-	$AnimationPlayer.play('RESET')
-	$AnimationPlayer.play('transitionIn')
-	await $AnimationPlayer.animation_finished
-	#add scene change code
-	$AnimationPlayer.play("transitionOut")
 	
 func change_scene(sceneName):
 	var scene = "res://Scenes/" + sceneName + ".tscn"

@@ -1,14 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://cotraukqrignk"]
+[gd_scene load_steps=6 format=3 uid="uid://cotraukqrignk"]
+
+[ext_resource type="Texture2D" uid="uid://cij7tknnh7vx" path="res://Sprites/BGTitleDoor.png" id="1_fxrw8"]
+[ext_resource type="Texture2D" uid="uid://tqopeapdpppc" path="res://Sprites/Gradient.png" id="2_2q4go"]
+[ext_resource type="FontFile" uid="uid://d16gvabnim1bu" path="res://CreatoDisplay-Regular.otf" id="3_75fhu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p6g6s"]
+font = ExtResource("3_75fhu")
+font_size = 64
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eapvr"]
+font = ExtResource("3_75fhu")
+font_size = 32
+font_color = Color(0.109804, 0.109804, 0.109804, 1)
 
 [node name="Congrats" type="Node2D"]
 
+[node name="BgTitleDoor" type="Sprite2D" parent="."]
+position = Vector2(580, 452)
+texture = ExtResource("1_fxrw8")
+
+[node name="Gradient" type="Sprite2D" parent="."]
+position = Vector2(572, 323.5)
+scale = Vector2(1.95, 1.6625)
+texture = ExtResource("2_2q4go")
+
+[node name="Gradient2" type="Sprite2D" parent="."]
+modulate = Color(0.686275, 0.686275, 0.686275, 1)
+position = Vector2(572, 323.5)
+scale = Vector2(1.95, -1.66)
+texture = ExtResource("2_2q4go")
+
 [node name="Label" type="Label" parent="."]
-offset_left = 492.0
-offset_top = 238.0
-offset_right = 532.0
-offset_bottom = 261.0
-text = "gg"
+offset_left = 512.0
+offset_top = 275.0
+offset_right = 650.0
+offset_bottom = 352.0
+text = "GG :)"
 label_settings = SubResource("LabelSettings_p6g6s")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 449.0
+offset_top = 359.0
+offset_right = 708.0
+offset_bottom = 436.0
+text = "Thanks for playing!"
+label_settings = SubResource("LabelSettings_eapvr")

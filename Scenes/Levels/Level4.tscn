@@ -30,19 +30,19 @@ light_energy = 10.0
 omni_range = 7.0
 
 [node name="Player" parent="." groups=["box", "player"] instance=ExtResource("4_eh0uo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 4.5, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.5, -0.5)
 
 [node name="Box2" parent="." instance=ExtResource("5_ah8k4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 3.5, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.5, -1.5)
 scaling = Vector3i(1, 3, 1)
 
 [node name="Box4" parent="." instance=ExtResource("5_ah8k4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 4.5, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 3.5, -0.5)
 scaling = Vector3i(3, 1, 1)
 
 [node name="Door" parent="." instance=ExtResource("6_c7dd4")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 3, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 3, 5)
 dir = Vector3(0, 0, -1)
 scaling = Vector3i(3, 4, 1)
 
